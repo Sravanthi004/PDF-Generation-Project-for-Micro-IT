@@ -1,6 +1,6 @@
-# PDF-Generation-for-Micro-IT
+# PDF-Generation-Project-for-Micro-IT
 A dynamic PDF generator built for Micro IT to automate job offer letter creation. It captures candidate details like name, job title, company, start date, salary, and location. Generates a professionally formatted PDF offer letter instantly based on the provided inputs. 
-# 📄 PDF Generator for Micro IT
+# 📄 PDF Generator Project for Micro IT
 
 This is a simple, elegant web application for generating customized PDF job offer letters. It collects essential employment details from the user and generates a printable PDF document, ideal for HR teams or company admins at Micro IT.
 
