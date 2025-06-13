@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offer Letter PDF Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      background:hsl(241, 81.90%, 49.80%);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(2, 62, 253, 0.3);
+      width: 100%;
+      max-width: 500px;
+      animation: fadeInScale 1s ease forwards;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 50px rgba(2, 62, 253, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #023efd;
+      font-weight: 900;
+      font-size: 26px;
+      text-transform: uppercase;
+      animation: slideIn 1s ease forwards;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #023efd;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    form input[type="text"],
+    form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 2px solid #dce3f7;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    form input[type="text"]:hover,
+    form textarea:hover,
+    form input[type="text"]:focus,
+    form textarea:focus {
+      transform: scale(1.03);
+      border-color: #023efd;
+      box-shadow: 0 0 10px rgba(2, 62, 253, 0.2);
+      outline: none;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    form input[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: #023efd;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      transform: scale(1.05);
+      background-color: #002bc1;
+      box-shadow: 0 10px 20px rgba(2, 62, 253, 0.4);
+    }
+
+    .toast_alert {
+      margin-top: 20px;
+      padding: 16px;
+      background-color: #e3f2fd;
+      border: 1px solid #90caf9;
+      color: #023efd;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(2, 62, 253, 0.2);
+      animation: slideDown 0.5s ease forwards;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Offer Letter Generator</h1>
+    <form method="POST" action="/generate-offer">
+      <label for="name">Candidate Name</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" required />
+
+      <label for="position">Position</label>
+      <input type="text" id="position" name="position" placeholder="e.g. Software Engineer" required />
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company" placeholder="e.g. TechNova Pvt Ltd" required />
+
+      <input type="submit" value="Generate Offer Letter PDF" />
+    </form>
+
+    {% if typeAlert == 1 %}
+    <div class="toast_alert">
+      Offer Letter PDF generated successfully 🥳
+    </div>
+    {% endif %}
+  </div>
+</body>
+
+</html>
